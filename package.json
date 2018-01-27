@@ -1,0 +1,26 @@
+{
+  "name": "resb",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "iot",
+    "web"
+  ],
+  "author": "Sinoquet Tristan & Yvert Jonathan",
+  "license": "ISC",
+  "devDependencies": {
+    "cordova": "^7.0.1"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "knx.js": "^0.7.0",
+    "serialport": "^4.0.7",
+    "serve-favicon": "^2.4.3",
+    "socket.io": "^2.0.1"
+  }
+}

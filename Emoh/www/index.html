@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DashBoard</title>
+		<meta name="description" content="Dashboard for home automation" />
+		<meta name="keywords" content="horizontal, slide out, menu, navigation, responsive, javascript, images, grid, dashboard" />
+		<meta name="author" content="Sinoquet Tristan et Yvert Jonathan" />
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/lc_switch.css" />
+		<link rel="stylesheet" type="text/css" href="css/time.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/modernizr.custom_2.js"></script>
+		<script src="js/jquery-3.2.0.min.js"></script>
+	</head>
+	<body class="cbp-spmenu-push">
+
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+			<h3>Menu</h3>
+			<a href="#" onclick="show_room()">Room</a>
+			<a href="#" onclick="show_fonction()">Fonction</a>
+    	<a id="modif" onclick="change()"> IP Server </a>
+		</nav>
+
+		<div class="container">
+			<header class="clearfix" id="showLeft" onclick="cbpHorizontalSlideOutMenu()">
+				<h1>EmoH</h1>
+			</header>
+			<div class="main" id="main">
+				<nav class="cbp-hsmenu-wrapper" id="cbp-hsmenu-wrapper">
+					<div class="cbp-hsinner">
+						<ul class="cbp-hsmenu">
+							<li id="livingroom">
+								<a href="#">Living room</a>
+								<ul class="cbp-hssubmenu">
+									<li>
+										<div id="capteur">
+											<div id="temp" class="mesCapteurs">
+												<p id="lvltemp">Temp.<br \>-- °C</p>
+											</div>
+											<div id="CO" class="mesCapteurs">
+												<p id="lvlCO">CO2<br \>-- ppm</p>
+											</div>
+											<div id="humide" class="mesCapteurs">
+												<p id="lvlhumid">Humi.<br \>-- %</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div id="light">
+											<h2>Light Control</h2>
+											<p>Light 1</p>
+											<label id="light1" class="switch">
+											  <input id="etat1" type="checkbox">
+											  <div id="1" class="slider round"></div>
+											</label>
+
+											<p>Light 2</p>
+											<label id="light2" class="switch">
+											  <input id="etat2" type="checkbox">
+											  <div id="2" class="slider round"></div>
+											</label>
+											<br>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li id="kitchen">
+								<a href="#">Kitchen</a>
+								<ul class="cbp-hssubmenu">
+									<li>
+										<div id="light">
+											<h2>Light Control</h2>
+											<p>Light 3</p>
+											<label id="light3" class="switch">
+										  		<input id="etat3" type="checkbox">
+										  		<div id="3" class="slider round"></div>
+											</label>
+									</li>
+								</ul>
+							</li>
+							<li id="bedroom">
+								<a href="#">Bedroom</a>
+								<ul class="cbp-hssubmenu">
+									<li>
+										<p>Choose your color:
+										<input class="jscolor" onchange="update(this.jscolor)" value="FFFFFF">
+
+										<p id="rect" style="border:1px solid gray; width:161px; height:100px; margin-left: 28%; background-color: #ffffff; margin-bottom: -0.7em">
+										</p>
+										<div id="modeb">
+											<div id="rainbow">
+												<p>Rainbow</p>
+												<label id="rain" class="switch">
+												  <input id="couleur" type="checkbox">
+												  <div id="couleur1" class="slider round"></div>
+												</label>
+											</div>
+											<div id="candle">
+												<p>Candle</p>
+												<label id="can" class="switch">
+												  <input id="bougie" type="checkbox">
+												  <div id="bougie2" class="slider round"></div>
+												</label>
+											</div>
+											<div id="flash">
+												<p>Flash</p>
+												<label id="fla" class="switch">
+											  		<input id="radar" type="checkbox">
+											  		<div id="radar3" class="slider round"></div>
+												</label>
+											</div>
+										</div>
+										<br />
+										<br />
+										<div id="testco">
+											<div id="text">Disconnect</div>
+											<div id="connection">
+												<label id="choix" class="switch">
+											  		<input id="choix2" type="checkbox">
+											  		<div id="choix3" class="slider round"></div>
+												</label>
+											</div>
+											<div id="text">Connect</div>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li id="garden">
+								<a href="#">Garden</a>
+								<ul class="cbp-hssubmenu">
+									<li>
+										<div id="light">
+											<h2>Light Control</h2>
+											<p>Light 4</p>
+											<label id="light4" class="switch">
+										  		<input id="etat4" type="checkbox">
+										  		<div id="4" class="slider round"></div>
+											</label>
+										</div>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#">About us</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="main" id="main2">
+				<div id="chenille">
+					<h2>Chenillard</h2>
+					<div class="LeftRight">
+						<div>OFF</div>
+						<label id="chenillard" class="switch">
+					  		<input id="ch" type="checkbox">
+					  		<div id="c" class="slider round"></div>
+						</label>
+						<div>ON</div>
+					</div>
+					<br>
+
+					<h3>Speed</h3>
+					<button id='target1' >1s</button>
+					<button id='target2' >5s</button>
+					<button id='target3' >10s</button>
+
+					<h3 class="separation">Direction</h3>
+
+					<div class="LeftRight">
+						<div>Gauche</div>
+						<label id="direction" class="switch">
+					  		<input id="direc" type="checkbox">
+					  		<div id="dir" class="slider round"></div>
+						</label>
+						<div>Droite</div>
+					</div>
+					<br />
+					<br />
+
+					<h3 class="separation">Retour d'état</h3>
+					<div class="row">
+						<form method="get">
+							<div class="form-group">
+								<div class="col-md-3">
+									<label class="btn btn-primary" id="bulb1">
+										<img src="images/bulb.png" alt="..." class="img-thumbnail img-check" id="img-item1">
+									</label>
+								</div>
+								<div class="col-md-3">
+									<label class="btn btn-primary" id="bulb2">
+										<img src="images/bulb.png" alt="..." class="img-thumbnail img-check" id="img-item2">
+									</label>
+								</div>
+								<div class="col-md-3">
+									<label class="btn btn-primary" id="bulb3">
+										<img src="images/bulb.png" alt="..." class="img-thumbnail img-check" id="img-item3">
+									</label>
+								</div>
+								<div class="col-md-3">
+									<label class="btn btn-primary" id="bulb4">
+										<img src="images/bulb.png" alt="..." class="img-thumbnail img-check" id="img-item4">
+									</label>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<h3 class="separation">Schéma personnalisé</h3>
+
+					<div class="text-box-horizontal" id="text-box-angle">
+						Lamp <br />
+						Seq
+					</div>
+					<div class="text-box-horizontal">1</div>
+					<div class="text-box-horizontal">2</div>
+					<div class="text-box-horizontal">3</div>
+					<div class="text-box-horizontal">4</div>
+					<div class="text-box-horizontal">Time</div>
+
+					<div class="text-box-vertical">1</div>
+					<input type="checkbox" class="floating-box" id="S11">
+					<input type="checkbox" class="floating-box" id="S12">
+					<input type="checkbox" class="floating-box" id="S13">
+					<input type="checkbox" class="floating-box" id="S14">
+					<input type="number" class="form-control login-field" value="" placeholder="Sec" id="S15">
+
+					<div class="text-box-vertical">2</div>
+					<input type="checkbox" class="floating-box" id="S21">
+					<input type="checkbox" class="floating-box" id="S22">
+					<input type="checkbox" class="floating-box" id="S23">
+					<input type="checkbox" class="floating-box" id="S24">
+					<input type="number" class="form-control login-field" value="" placeholder="Sec" id="S25">
+
+					<div class="text-box-vertical">3</div>
+					<input type="checkbox" class="floating-box" id="S31">
+					<input type="checkbox" class="floating-box" id="S32">
+					<input type="checkbox" class="floating-box" id="S33">
+					<input type="checkbox" class="floating-box" id="S34">
+					<input type="number" class="form-control login-field" value="" placeholder="Sec" id="S35">
+
+					<div class="text-box-vertical">4</div>
+					<input type="checkbox" class="floating-box" id="S41">
+					<input type="checkbox" class="floating-box" id="S42">
+					<input type="checkbox" class="floating-box" id="S43">
+					<input type="checkbox" class="floating-box" id="S44">
+					<input type="number" class="form-control login-field" value="" placeholder="Sec" id="S45">
+
+					<a class="myButton" onClick="SaveChenillard()">Save</a>
+					<a class="myButton" onclick="Run()">Run</a>
+					<a class="myButton" onclick="Stop()">Stop</a>
+
+					<h3 class="separation">Draw a icon</h3>
+					<div class="draw">
+						<input type="checkbox" class="drawIcon" id="S101">
+						<input type="checkbox" class="drawIcon" id="S102">
+						<input type="checkbox" class="drawIcon" id="S103">
+						<input type="checkbox" class="drawIcon" id="S104">
+						<input type="checkbox" class="drawIcon" id="S105">
+						<input type="checkbox" class="drawIcon" id="S106">
+						<input type="checkbox" class="drawIcon" id="S107">
+						<input type="checkbox" class="drawIcon" id="S108">
+
+						<input type="checkbox" class="drawIcon" id="S111">
+						<input type="checkbox" class="drawIcon" id="S112">
+						<input type="checkbox" class="drawIcon" id="S113">
+						<input type="checkbox" class="drawIcon" id="S114">
+						<input type="checkbox" class="drawIcon" id="S115">
+						<input type="checkbox" class="drawIcon" id="S116">
+						<input type="checkbox" class="drawIcon" id="S117">
+						<input type="checkbox" class="drawIcon" id="S118">
+
+						<input type="checkbox" class="drawIcon" id="S121">
+						<input type="checkbox" class="drawIcon" id="S122">
+						<input type="checkbox" class="drawIcon" id="S123">
+						<input type="checkbox" class="drawIcon" id="S124">
+						<input type="checkbox" class="drawIcon" id="S125">
+						<input type="checkbox" class="drawIcon" id="S126">
+						<input type="checkbox" class="drawIcon" id="S127">
+						<input type="checkbox" class="drawIcon" id="S128">
+
+						<input type="checkbox" class="drawIcon" id="S131">
+						<input type="checkbox" class="drawIcon" id="S132">
+						<input type="checkbox" class="drawIcon" id="S133">
+						<input type="checkbox" class="drawIcon" id="S134">
+						<input type="checkbox" class="drawIcon" id="S135">
+						<input type="checkbox" class="drawIcon" id="S136">
+						<input type="checkbox" class="drawIcon" id="S137">
+						<input type="checkbox" class="drawIcon" id="S138">
+
+						<input type="checkbox" class="drawIcon" id="S141">
+						<input type="checkbox" class="drawIcon" id="S142">
+						<input type="checkbox" class="drawIcon" id="S143">
+						<input type="checkbox" class="drawIcon" id="S144">
+						<input type="checkbox" class="drawIcon" id="S145">
+						<input type="checkbox" class="drawIcon" id="S146">
+						<input type="checkbox" class="drawIcon" id="S147">
+						<input type="checkbox" class="drawIcon" id="S148">
+
+						<input type="checkbox" class="drawIcon" id="S151">
+						<input type="checkbox" class="drawIcon" id="S152">
+						<input type="checkbox" class="drawIcon" id="S153">
+						<input type="checkbox" class="drawIcon" id="S154">
+						<input type="checkbox" class="drawIcon" id="S155">
+						<input type="checkbox" class="drawIcon" id="S156">
+						<input type="checkbox" class="drawIcon" id="S157">
+						<input type="checkbox" class="drawIcon" id="S158">
+
+						<input type="checkbox" class="drawIcon" id="S161">
+						<input type="checkbox" class="drawIcon" id="S162">
+						<input type="checkbox" class="drawIcon" id="S163">
+						<input type="checkbox" class="drawIcon" id="S164">
+						<input type="checkbox" class="drawIcon" id="S165">
+						<input type="checkbox" class="drawIcon" id="S166">
+						<input type="checkbox" class="drawIcon" id="S167">
+						<input type="checkbox" class="drawIcon" id="S168">
+
+						<input type="checkbox" class="drawIcon" id="S171">
+						<input type="checkbox" class="drawIcon" id="S172">
+						<input type="checkbox" class="drawIcon" id="S173">
+						<input type="checkbox" class="drawIcon" id="S174">
+						<input type="checkbox" class="drawIcon" id="S175">
+						<input type="checkbox" class="drawIcon" id="S176">
+						<input type="checkbox" class="drawIcon" id="S177">
+						<input type="checkbox" class="drawIcon" id="S178">
+					</div>
+					<a class="myButton" onclick="SendDraw()">Send</a>
+					<a class="myButton" onclick="ClearDraw()">Clear</a>
+				</div>
+		</div>
+        <script src="http://raspberry.home:8080/socket.io/socket.io.js"></script>
+        <script src="js/cbpHorizontalSlideOutMenu.min.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+			}
+		</script>
+		<script type="text/javascript" src="js/message.js"></script>
+		<script type="text/javascript" src="js/jscolor.js"></script>
+		<script src="js/classie.js"></script>
+		<script>
+			var menu = new cbpHorizontalSlideOutMenu( document.getElementById( 'cbp-hsmenu-wrapper' ) );
+		</script>
+	</body>
+</html>
